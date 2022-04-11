@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "936957627271",
+    "project_id": "cogm-e4ca1",
+    "storage_bucket": "cogm-e4ca1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936957627271:android:d5d2ef61cfcecbe0a3e122",
+        "android_client_info": {
+          "package_name": "com.example.diploma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936957627271-dm29t4f9a1mbu8td45rk0ve5n7dqboas.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.diploma",
+            "certificate_hash": "cd1b956a5267310445d9b792d5be8e915b1350e3"
+          }
+        },
+        {
+          "client_id": "936957627271-13k71ocfor8vt8361rk52n3mm4vk1b2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP34vZvWVbZLd30ndkDWXXqDOehjx66PQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936957627271-13k71ocfor8vt8361rk52n3mm4vk1b2u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
