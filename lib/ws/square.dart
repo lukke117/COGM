@@ -12,7 +12,7 @@ class MySquare extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: Container(
-          height: 100,
+          height: 70,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(50.0),
