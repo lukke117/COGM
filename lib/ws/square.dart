@@ -12,14 +12,14 @@ class MySquare extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: Container(
-          height: 70,
+          height: 90,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(50.0),
                 bottomLeft: Radius.circular(50.0),
                 topRight: Radius.circular(50.0),
                 bottomRight: Radius.circular(50.0)),
-            color: Colors.deepPurple,
+            color: colorred,
           ),
           child: Center(
             child: TextButton(
