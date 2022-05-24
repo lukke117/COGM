@@ -29,15 +29,15 @@ class _HomeScreenState extends State<HomeScreen> {
         .doc(user!.uid)
         .get()
         .then((value) {
-      print(UserModel.fromMap(value.data()));
       loggedInUser = UserModel.fromMap(value.data());
       setState(() {});
     });
   }
 
+  @override
   Widget adminFeature() {
-    if (_isAdmin == true) {
-      return const Text("You are an admin");
+    if (loggedInUser.admin == true) {
+      return Text("You are an admin");
     } else {
       return Container();
     }
@@ -62,7 +62,42 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
           )),
     );
-
+    final report1Button = Material(
+      elevation: 5,
+      borderRadius: BorderRadius.circular(30),
+      color: colorblue,
+      child: MaterialButton(
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+          minWidth: MediaQuery.of(context).size.width,
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const reportPage()));
+          },
+          child: const Text(
+            "##/##/##/report",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+          )),
+    );
+    final report2Button = Material(
+      elevation: 5,
+      borderRadius: BorderRadius.circular(30),
+      color: colorblue,
+      child: MaterialButton(
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+          minWidth: MediaQuery.of(context).size.width,
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const reportPage()));
+          },
+          child: const Text(
+            "##/##/##/report",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+          )),
+    );
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorblue,
@@ -89,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 40,
               ),
               const Text(
-                "Click the Button below to access your monthly report",
+                "Click the Button below to review the monthly reports",
                 style: TextStyle(
                   fontSize: 20,
                 ),

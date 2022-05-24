@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
-  
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
@@ -20,3 +19,12 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 }
+
+// class User {
+//   final String imagePath;
+//   const User({required this.imagePath});  
+// }
+
+// class UserPreferences {
+//   static const myUser = User(imagePath: '##');
+// }
