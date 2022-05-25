@@ -35,6 +35,31 @@ final youthController = new TextEditingController();
 final couplesController = new TextEditingController();
 final cssController = new TextEditingController(); //children sunday school
 
+Future<bool> addCoin(String id, String amount) async {
+  try {
+    String? uid = FirebaseAuth.instance.currentUser?.uid;
+
+    
+    var value = double.parse(amount);
+    DocumentReference documentReference = FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .collection('Reports')
+        .doc(id);
+    FirebaseFirestore.instance.runTransaction((transaction) async {
+      DocumentSnapshot snapshot = await transaction.get(documentReference);
+      if (!snapshot.exists) {
+        documentReference.set({'Amount': value});
+        return true;
+      }
+      return true;
+    });
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 final cssField = TextFormField(
     autofocus: false,
     controller: cssController,
@@ -468,9 +493,9 @@ class _reportPageState extends State<reportPage> {
       child: MaterialButton(
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
-          onPressed: () {
-            //  submit(dateController.text, localChurchController.text, addressController.text );
-          },
+          onPressed: () async {
+                await addCoin('1', "12");
+              },
           child: const Text(
             "Submit",
             textAlign: TextAlign.center,
@@ -548,3 +573,4 @@ class _reportPageState extends State<reportPage> {
     );
   }
 }
+
