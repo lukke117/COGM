@@ -17,7 +17,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _isAdmin = true;
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
 
@@ -29,18 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
         .doc(user!.uid)
         .get()
         .then((value) {
-      print(UserModel.fromMap(value.data()));
       loggedInUser = UserModel.fromMap(value.data());
       setState(() {});
     });
-  }
-
-  Widget adminFeature() {
-    if (_isAdmin == true) {
-      return const Text("You are an admin");
-    } else {
-      return Container();
-    }
   }
 
   Widget build(BuildContext context) {
@@ -80,7 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              adminFeature(),
               SizedBox(
                 height: 150,
                 child: Image.asset("assets/logo.png", fit: BoxFit.contain),

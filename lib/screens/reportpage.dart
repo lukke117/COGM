@@ -34,22 +34,37 @@ final womenController = new TextEditingController();
 final youthController = new TextEditingController();
 final couplesController = new TextEditingController();
 final cssController = new TextEditingController(); //children sunday school
-
-Future<bool> addCoin(String id, String amount) async {
+Future<bool> submit() async {
   try {
     String? uid = FirebaseAuth.instance.currentUser?.uid;
 
-    
-    var value = double.parse(amount);
     DocumentReference documentReference = FirebaseFirestore.instance
         .collection('users')
         .doc(uid)
         .collection('Reports')
-        .doc(id);
+        .doc(uid);
     FirebaseFirestore.instance.runTransaction((transaction) async {
       DocumentSnapshot snapshot = await transaction.get(documentReference);
       if (!snapshot.exists) {
-        documentReference.set({'Amount': value});
+        documentReference.set({
+          'date': dateController,
+          'localChurch': localChurchController,
+          'address': addressController,
+          'fplw': fplwController,
+          'soulSaved': soulSavedController,
+          'bbhs': bbhsController,
+          'wb': wbController,
+          'discipled': discipledController,
+          'nbscg': nbscgController,
+          'nofworkers': nofworkersController,
+          'avgattlm': avgattlmController,
+          'avgtttlm': avgatttmController,
+          'men': menController,
+          'women': womenController,
+          'youth': youthController,
+          'couples': couplesController,
+          'css': cssController
+        });
         return true;
       }
       return true;
@@ -471,8 +486,8 @@ class _reportPageState extends State<reportPage> {
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () async {
-                await addCoin('1', "12");
-              },
+            await submit();
+          },
           child: const Text(
             "Submit",
             textAlign: TextAlign.center,
@@ -551,64 +566,64 @@ class _reportPageState extends State<reportPage> {
   }
 }
 
-<<<<<<< HEAD
-void submit(
-    String date,
-    String localChurch,
-    String address,
-    String fplw,
-    String soulSaved,
-    String bbhs,
-    String wb,
-    String discipled,
-    String nbscg,
-    String nofworkers,
-    String avgattlm,
-    String avgtttlm,
-    String men,
-    String women,
-    String youth,
-    String couples,
-    String css) async {
-  postDetailsToFirestore() async {
-    // calling our firestore
-    // calling our user model
-    // sending these values
+// void submit(
+//     String date,
+//     String localChurch,
+//     String address,
+//     String fplw,
+//     String soulSaved,
+//     String bbhs,
+//     String wb,
+//     String discipled,
+//     String nbscg,
+//     String nofworkers,
+//     String avgattlm,
+//     String avgtttlm,
+//     String men,
+//     String women,
+//     String youth,
+//     String couples,
+//     String css) async {
+//       try{
+//         String uid = FirebaseAuth.instance.currentUser.uid;
+//       }
+//   postDetailsToFirestore() async {
+//     // calling our firestore
+//     // calling our user model
+//     // sending these values
 
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    ReportModel reportModel = ReportModel();
+//     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+//     ReportModel reportModel = ReportModel();
 
-    // writing all the values
-    reportModel.date = user!.date;
-    reportModel.rid = user.uid;
-    reportModel.date = dateController.text;
-    reportModel.localChurch = localChurchController.text;
-    reportModel.address = addressController.text;
-    reportModel.fplw = fplwController.text;
-    reportModel.soulSaved = soulSavedController.text;
-    reportModel.bbhs = bbhsController.text;
-    reportModel.wb = wbController.text;
-    reportModel.discipled = discipledController.text;
-    reportModel.nbscg = nbscgController.text;
-    reportModel.nofworkers = nofworkersController.text;
-    reportModel.avgattlm = avgattlmController.text;
-    reportModel.avgtttlm = avgatttmController.text;
-    reportModel.men = menController.text;
-    reportModel.women = womenController.text;
-    reportModel.youth = youthController.text;
-    reportModel.couples = couplesController.text;
-    reportModel.css = cssController.text;
-    await firebaseFirestore
-        .collection("users")
-        .doc(user.uid)
-        .set(userModel.toMap());
-    Fluttertoast.showToast(msg: "Account created successfully :) ");
+//     // writing all the values
+//     reportModel.date = user!.date;
+//     reportModel.rid = user.uid;
+//     reportModel.date = dateController.text;
+//     reportModel.localChurch = localChurchController.text;
+//     reportModel.address = addressController.text;
+//     reportModel.fplw = fplwController.text;
+//     reportModel.soulSaved = soulSavedController.text;
+//     reportModel.bbhs = bbhsController.text;
+//     reportModel.wb = wbController.text;
+//     reportModel.discipled = discipledController.text;
+//     reportModel.nbscg = nbscgController.text;
+//     reportModel.nofworkers = nofworkersController.text;
+//     reportModel.avgattlm = avgattlmController.text;
+//     reportModel.avgtttlm = avgatttmController.text;
+//     reportModel.men = menController.text;
+//     reportModel.women = womenController.text;
+//     reportModel.youth = youthController.text;
+//     reportModel.couples = couplesController.text;
+//     reportModel.css = cssController.text;
+//     await firebaseFirestore
+//         .collection("users")
+//         .doc(user.uid)
+//         .set(userModel.toMap());
+//     Fluttertoast.showToast(msg: "Account created successfully :) ");
 
-    Navigator.pushAndRemoveUntil(
-        (context),
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-        (route) => false);
-  }
-}
-=======
->>>>>>> 2cb3a8e464adfcf79c35266c559f79902f8069ab
+//     Navigator.pushAndRemoveUntil(
+//         (context),
+//         MaterialPageRoute(builder: (context) => const HomeScreen()),
+//         (route) => false);
+//   }
+// }
