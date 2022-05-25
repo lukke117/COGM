@@ -1,6 +1,5 @@
 class ReportModel {
   String? date;
-  String? year;
   String? localChurch;
   String? address;
   String? fplw;
@@ -20,7 +19,6 @@ class ReportModel {
 
   ReportModel(
       {this.date,
-      this.year,
       this.localChurch,
       this.address,
       this.fplw,
@@ -42,7 +40,6 @@ class ReportModel {
   factory ReportModel.fromMap(map) {
     return ReportModel(
         date: map['date'],
-        year: map['year'],
         localChurch: map['localChurch'],
         address: map['address'],
         fplw: map['fplw'],
@@ -65,7 +62,6 @@ class ReportModel {
   Map<String, dynamic> toMap() {
     return {
       'date': date,
-      'year': year,
       'localChurch': localChurch,
       'address': address,
       'fplw': fplw,

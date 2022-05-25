@@ -35,21 +35,37 @@ final youthController = new TextEditingController();
 final couplesController = new TextEditingController();
 final cssController = new TextEditingController(); //children sunday school
 
-Future<bool> addCoin(String id, String amount) async {
+Future<bool> submit() async {
   try {
     String? uid = FirebaseAuth.instance.currentUser?.uid;
 
-    
-    var value = double.parse(amount);
     DocumentReference documentReference = FirebaseFirestore.instance
         .collection('users')
         .doc(uid)
         .collection('Reports')
-        .doc(id);
+        .doc(uid);
     FirebaseFirestore.instance.runTransaction((transaction) async {
       DocumentSnapshot snapshot = await transaction.get(documentReference);
       if (!snapshot.exists) {
-        documentReference.set({'Amount': value});
+        documentReference.set({
+          'date': dateController.text,
+          'localChurch': localChurchController.text,
+          'address': addressController.text,
+          'fplw': fplwController.text,
+          'soulSaved': soulSavedController.text,
+          'bbhs': bbhsController.text,
+          'wb': wbController.text,
+          'discipled': discipledController.text,
+          'nbscg': nbscgController.text,
+          'nofworkers': nofworkersController.text,
+          'avgattlm': avgattlmController.text,
+          'avgtttlm': avgatttmController.text,
+          'men': menController.text,
+          'women': womenController.text,
+          'youth': youthController.text,
+          'couples': couplesController.text,
+          'css': cssController.text
+        });
         return true;
       }
       return true;
@@ -471,8 +487,8 @@ class _reportPageState extends State<reportPage> {
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () async {
-                await addCoin('1', "12");
-              },
+            await submit();
+          },
           child: const Text(
             "Submit",
             textAlign: TextAlign.center,
@@ -569,6 +585,9 @@ class _reportPageState extends State<reportPage> {
 //     String youth,
 //     String couples,
 //     String css) async {
+//       try{
+//         String uid = FirebaseAuth.instance.currentUser.uid;
+//       }
 //   postDetailsToFirestore() async {
 //     // calling our firestore
 //     // calling our user model

@@ -3,6 +3,13 @@ import 'package:diploma/screens/regscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diploma/model/user_model.dart';
+
+import 'ahomescreen.dart';
+
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -14,6 +21,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   // form key
   final _formKey = GlobalKey<FormState>();
+
+    UserModel loggedInUser = UserModel();
+
 
   // editing controller
   final TextEditingController emailController = new TextEditingController();
@@ -167,9 +177,28 @@ class _LoginScreenState extends State<LoginScreen> {
             .signInWithEmailAndPassword(email: email, password: password)
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
+                  // print("dewqewq ${FirebaseAuth.instance.currentUser}"),
+
+                  FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get()
+        .then((value) {
+          // print("bababbababab ${UserModel.fromMap(value.data()).admin}");
+      if (UserModel.fromMap(value.data()).admin == true) {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const AHomeScreen()));
+        
+      } else {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const HomeScreen()));
+
+      }
+    })
                   
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const HomeScreen())),
+                      
+
+                  
                 });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {

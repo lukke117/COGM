@@ -9,14 +9,14 @@ const colorblue = Color(0xFF012B81);
 
 const colorred = Color(0xFFBE0411);
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class AHomeScreen extends StatefulWidget {
+  const AHomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<AHomeScreen> createState() => _AHomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _AHomeScreenState extends State<AHomeScreen> {
   bool _isAdmin = true;
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (context) => const reportPage()));
           },
           child: const Text(
-            "##/##/##/report",
+            "report",
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
