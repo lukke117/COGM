@@ -34,10 +34,9 @@ class _AHomeScreenState extends State<AHomeScreen> {
     });
   }
 
-  @override
   Widget adminFeature() {
     if (loggedInUser.admin == true) {
-      return Text("You are an admin");
+      return const Text("You are an admin");
     } else {
       return Container();
     }
@@ -46,14 +45,14 @@ class _AHomeScreenState extends State<AHomeScreen> {
   Widget build(BuildContext context) {
     final reportButton = Material(
       elevation: 5,
-      borderRadius: BorderRadius.circular(30),
+      //borderRadius: BorderRadius.circular(30),
       color: colorblue,
       child: MaterialButton(
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const reportPage()));
+            //  Navigator.push(context,
+            //      MaterialPageRoute(builder: (context) => const reportPage()));
           },
           child: const Text(
             "report",
@@ -70,8 +69,8 @@ class _AHomeScreenState extends State<AHomeScreen> {
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const reportPage()));
+            //   Navigator.push(context,
+            //       MaterialPageRoute(builder: (context) => const reportPage()));
           },
           child: const Text(
             "##/##/##/report",
@@ -88,8 +87,8 @@ class _AHomeScreenState extends State<AHomeScreen> {
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const reportPage()));
+            //  Navigator.push(context,
+            //  MaterialPageRoute(builder: (context) => const reportPage()));
           },
           child: const Text(
             "##/##/##/report",
@@ -124,7 +123,7 @@ class _AHomeScreenState extends State<AHomeScreen> {
                 height: 40,
               ),
               const Text(
-                "Click the Button below to review the monthly reports",
+                "Click the Button below to view the monthly reports",
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -136,6 +135,10 @@ class _AHomeScreenState extends State<AHomeScreen> {
               const SizedBox(
                 height: 40,
               ),
+              report1Button,
+              const SizedBox(height: 40),
+              report2Button,
+              const SizedBox(height: 40),
               ActionChip(
                   label: const Text("Logout"),
                   onPressed: () {

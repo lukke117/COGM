@@ -189,7 +189,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: colorblue,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: colorblue),

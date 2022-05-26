@@ -1,9 +1,10 @@
-import 'package:diploma/model/report_model.dart';
+// import 'package:diploma/model/report_model.dart';
 import 'package:flutter/material.dart';
 import 'package:diploma/screens/homescreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diploma/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class reportPage extends StatefulWidget {
   const reportPage({Key? key}) : super(key: key);
@@ -34,47 +35,6 @@ final womenController = new TextEditingController();
 final youthController = new TextEditingController();
 final couplesController = new TextEditingController();
 final cssController = new TextEditingController(); //children sunday school
-
-Future<bool> submit() async {
-  try {
-    String? uid = FirebaseAuth.instance.currentUser?.uid;
-
-    DocumentReference documentReference = FirebaseFirestore.instance
-        .collection('users')
-        .doc(uid)
-        .collection('Reports')
-        .doc(uid);
-    FirebaseFirestore.instance.runTransaction((transaction) async {
-      DocumentSnapshot snapshot = await transaction.get(documentReference);
-      if (!snapshot.exists) {
-        documentReference.set({
-          'date': dateController.text,
-          'localChurch': localChurchController.text,
-          'address': addressController.text,
-          'fplw': fplwController.text,
-          'soulSaved': soulSavedController.text,
-          'bbhs': bbhsController.text,
-          'wb': wbController.text,
-          'discipled': discipledController.text,
-          'nbscg': nbscgController.text,
-          'nofworkers': nofworkersController.text,
-          'avgattlm': avgattlmController.text,
-          'avgtttlm': avgatttmController.text,
-          'men': menController.text,
-          'women': womenController.text,
-          'youth': youthController.text,
-          'couples': couplesController.text,
-          'css': cssController.text
-        });
-        return true;
-      }
-      return true;
-    });
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
 
 final cssField = TextFormField(
     autofocus: false,
@@ -366,6 +326,53 @@ class _reportPageState extends State<reportPage> {
   }
 
   Widget build(BuildContext context) {
+    Future<bool> submit() async {
+      try {
+        String? uid = FirebaseAuth.instance.currentUser?.uid;
+
+        DocumentReference documentReference = FirebaseFirestore.instance
+            .collection('users')
+            .doc(uid)
+            .collection('Reports')
+            .doc(uid);
+        Fluttertoast.showToast(msg: "Report submitted successfully ");
+
+        Navigator.pushAndRemoveUntil(
+            (context),
+            MaterialPageRoute(builder: (context) => const HomeScreen()),
+            (route) => false);
+        FirebaseFirestore.instance.runTransaction((transaction) async {
+          DocumentSnapshot snapshot = await transaction.get(documentReference);
+          if (!snapshot.exists) {
+            documentReference.set({
+              'date': dateController.text,
+              'localChurch': localChurchController.text,
+              'address': addressController.text,
+              'fplw': fplwController.text,
+              'soulSaved': soulSavedController.text,
+              'bbhs': bbhsController.text,
+              'wb': wbController.text,
+              'discipled': discipledController.text,
+              'nbscg': nbscgController.text,
+              'nofworkers': nofworkersController.text,
+              'avgattlm': avgattlmController.text,
+              'avgtttlm': avgatttmController.text,
+              'men': menController.text,
+              'women': womenController.text,
+              'youth': youthController.text,
+              'couples': couplesController.text,
+              'css': cssController.text
+            });
+            return true;
+          }
+          return true;
+        });
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
     final dateField = TextFormField(
         autofocus: false,
         controller: dateController,
@@ -566,65 +573,3 @@ class _reportPageState extends State<reportPage> {
     );
   }
 }
-
-// void submit(
-//     String date,
-//     String localChurch,
-//     String address,
-//     String fplw,
-//     String soulSaved,
-//     String bbhs,
-//     String wb,
-//     String discipled,
-//     String nbscg,
-//     String nofworkers,
-//     String avgattlm,
-//     String avgtttlm,
-//     String men,
-//     String women,
-//     String youth,
-//     String couples,
-//     String css) async {
-//       try{
-//         String uid = FirebaseAuth.instance.currentUser.uid;
-//       }
-//   postDetailsToFirestore() async {
-//     // calling our firestore
-//     // calling our user model
-//     // sending these values
-
-//     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-//     ReportModel reportModel = ReportModel();
-
-//     // writing all the values
-//     reportModel.date = user!.date;
-//     reportModel.rid = user.uid;
-//     reportModel.date = dateController.text;
-//     reportModel.localChurch = localChurchController.text;
-//     reportModel.address = addressController.text;
-//     reportModel.fplw = fplwController.text;
-//     reportModel.soulSaved = soulSavedController.text;
-//     reportModel.bbhs = bbhsController.text;
-//     reportModel.wb = wbController.text;
-//     reportModel.discipled = discipledController.text;
-//     reportModel.nbscg = nbscgController.text;
-//     reportModel.nofworkers = nofworkersController.text;
-//     reportModel.avgattlm = avgattlmController.text;
-//     reportModel.avgtttlm = avgatttmController.text;
-//     reportModel.men = menController.text;
-//     reportModel.women = womenController.text;
-//     reportModel.youth = youthController.text;
-//     reportModel.couples = couplesController.text;
-//     reportModel.css = cssController.text;
-//     await firebaseFirestore
-//         .collection("users")
-//         .doc(user.uid)
-//         .set(userModel.toMap());
-//     Fluttertoast.showToast(msg: "Account created successfully :) ");
-
-//     Navigator.pushAndRemoveUntil(
-//         (context),
-//         MaterialPageRoute(builder: (context) => const HomeScreen()),
-//         (route) => false);
-//   }
-// }
