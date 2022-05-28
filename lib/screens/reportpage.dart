@@ -329,12 +329,13 @@ class _reportPageState extends State<reportPage> {
     Future<bool> submit() async {
       try {
         String? uid = FirebaseAuth.instance.currentUser?.uid;
+        DateTime now = new DateTime.now();
 
         DocumentReference documentReference = FirebaseFirestore.instance
             .collection('users')
             .doc(uid)
             .collection('Reports')
-            .doc(uid);
+            .doc(now.toString());
         Fluttertoast.showToast(msg: "Report submitted successfully ");
 
         Navigator.pushAndRemoveUntil(

@@ -1,4 +1,4 @@
-import 'package:diploma/screens/reportpage.dart';
+//import 'package:diploma/screens/reportpage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -17,7 +17,6 @@ class AHomeScreen extends StatefulWidget {
 }
 
 class _AHomeScreenState extends State<AHomeScreen> {
-  bool _isAdmin = true;
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
 
@@ -120,7 +119,7 @@ class _AHomeScreenState extends State<AHomeScreen> {
                 child: Image.asset("assets/logo.png", fit: BoxFit.contain),
               ),
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
               const Text(
                 "Click the Button below to view the monthly reports",
@@ -129,16 +128,16 @@ class _AHomeScreenState extends State<AHomeScreen> {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
               reportButton,
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
               report1Button,
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               report2Button,
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               ActionChip(
                   label: const Text("Logout"),
                   onPressed: () {
