@@ -1,4 +1,4 @@
-import 'package:diploma/screens/reportpage.dart';
+import 'package:diploma/screens/userprofile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -17,7 +17,6 @@ class AHomeScreen extends StatefulWidget {
 }
 
 class _AHomeScreenState extends State<AHomeScreen> {
-  bool _isAdmin = true;
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
 
@@ -61,6 +60,7 @@ class _AHomeScreenState extends State<AHomeScreen> {
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
           )),
     );
+
     final report1Button = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
@@ -106,6 +106,18 @@ class _AHomeScreenState extends State<AHomeScreen> {
               fontWeight: FontWeight.w500,
             )),
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.portrait,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfileScreen()));
+            },
+          )
+        ],
       ),
       body: Center(
         child: Padding(

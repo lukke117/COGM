@@ -97,7 +97,7 @@ final youthField = TextFormField(
     },
     textInputAction: TextInputAction.next,
     decoration: InputDecoration(
-      prefixIcon: const Icon(Icons.church),
+      prefixIcon: const Icon(Icons.child_care_outlined),
       contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
       hintText: "Youth",
       border: OutlineInputBorder(
@@ -120,7 +120,7 @@ final womenField = TextFormField(
     },
     textInputAction: TextInputAction.next,
     decoration: InputDecoration(
-      prefixIcon: const Icon(Icons.church),
+      prefixIcon: const Icon(Icons.woman),
       contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
       hintText: "Women",
       border: OutlineInputBorder(
@@ -142,7 +142,7 @@ final menField = TextFormField(
     },
     textInputAction: TextInputAction.next,
     decoration: InputDecoration(
-      prefixIcon: const Icon(Icons.church),
+      prefixIcon: const Icon(Icons.man),
       contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
       hintText: "Men",
       border: OutlineInputBorder(
@@ -165,7 +165,7 @@ final avgatttmField = TextFormField(
     },
     textInputAction: TextInputAction.next,
     decoration: InputDecoration(
-      prefixIcon: const Icon(Icons.church),
+      prefixIcon: const Icon(Icons.portrait_rounded),
       contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
       hintText: "Average attendance this month",
       border: OutlineInputBorder(
@@ -188,7 +188,7 @@ final avgattlmField = TextFormField(
     },
     textInputAction: TextInputAction.next,
     decoration: InputDecoration(
-      prefixIcon: const Icon(Icons.church),
+      prefixIcon: const Icon(Icons.portrait_rounded),
       contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
       hintText: "Average attendance last month",
       border: OutlineInputBorder(
@@ -210,7 +210,7 @@ final nofworkersField = TextFormField(
     },
     textInputAction: TextInputAction.next,
     decoration: InputDecoration(
-      prefixIcon: const Icon(Icons.church),
+      prefixIcon: const Icon(Icons.portrait_outlined),
       contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
       hintText: "number of workers",
       border: OutlineInputBorder(
@@ -233,7 +233,7 @@ final nbscgField = TextFormField(
     },
     textInputAction: TextInputAction.next,
     decoration: InputDecoration(
-      prefixIcon: const Icon(Icons.church),
+      prefixIcon: const Icon(Icons.group),
       contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
       hintText: "number of bible study/caregroup",
       border: OutlineInputBorder(
@@ -256,7 +256,7 @@ final discipledField = TextFormField(
     },
     textInputAction: TextInputAction.next,
     decoration: InputDecoration(
-      prefixIcon: const Icon(Icons.church),
+      prefixIcon: const Icon(Icons.people),
       contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
       hintText: "discipled",
       border: OutlineInputBorder(
@@ -279,7 +279,7 @@ final wbField = TextFormField(
     },
     textInputAction: TextInputAction.next,
     decoration: InputDecoration(
-      prefixIcon: const Icon(Icons.church),
+      prefixIcon: const Icon(Icons.water),
       contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
       hintText: "Water baptised",
       border: OutlineInputBorder(
@@ -409,7 +409,7 @@ class _reportPageState extends State<reportPage> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.calendar_today),
+          prefixIcon: const Icon(Icons.mic),
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Frequency of Preaching/Leading worship",
           border: OutlineInputBorder(
@@ -432,7 +432,7 @@ class _reportPageState extends State<reportPage> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.calendar_today),
+          prefixIcon: const Icon(Icons.people_alt),
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "souls saved",
           border: OutlineInputBorder(

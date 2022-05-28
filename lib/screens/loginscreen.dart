@@ -6,10 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diploma/model/user_model.dart';
-
 import 'ahomescreen.dart';
-
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -22,8 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   // form key
   final _formKey = GlobalKey<FormState>();
 
-    UserModel loggedInUser = UserModel();
-
+  UserModel loggedInUser = UserModel();
 
   // editing controller
   final TextEditingController emailController = new TextEditingController();
@@ -180,25 +176,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   // print("dewqewq ${FirebaseAuth.instance.currentUser}"),
 
                   FirebaseFirestore.instance
-        .collection('users')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .get()
-        .then((value) {
-          // print("bababbababab ${UserModel.fromMap(value.data()).admin}");
-      if (UserModel.fromMap(value.data()).admin == true) {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const AHomeScreen()));
-        
-      } else {
-        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const HomeScreen()));
-
-      }
-    })
-                  
-                      
-
-                  
+                      .collection('users')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .get()
+                      .then((value) {
+                    // print("bababbababab ${UserModel.fromMap(value.data()).admin}");
+                    if (UserModel.fromMap(value.data()).admin == true) {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const AHomeScreen()));
+                    } else {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const HomeScreen()));
+                    }
+                  })
                 });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
