@@ -362,7 +362,9 @@ class _reportPageState extends State<reportPage> {
               'women': womenController.text,
               'youth': youthController.text,
               'couples': couplesController.text,
-              'css': cssController.text
+              'css': cssController.text,
+              "name": loggedInUser.firstName,
+              "lastName": loggedInUser.lastName
             });
             return true;
           }

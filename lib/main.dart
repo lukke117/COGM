@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
-  try {
+  // try {
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -14,10 +14,10 @@ Future<void> main() async {
       projectId: "cogm-e4ca1", // Your projectId
     ),
   );
-  } catch (e) {
+  // } catch (e) {
 
   runApp(const MyApp());
-  }
+  // }
 
 }
 
