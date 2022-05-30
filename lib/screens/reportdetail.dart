@@ -14,13 +14,16 @@ class reportdetails extends StatefulWidget {
 
 class _reportdetailsState extends State<reportdetails> {
 
-  
+  // Map sdsd = {};
 
   // reportdetails({this.data})
   @override
 
   Widget build(BuildContext context) {
-  final todo = ModalRoute.of(context)!.settings.arguments;
+  final data = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+  // final dataR = Map<String, dynamic>.from(data);
+  // sdsd = data;
+  print("dataReport detail $data");
 
     // Extract the arguments from the current ModalRoute
     // settings and cast them as ScreenArguments.
@@ -31,7 +34,7 @@ class _reportdetailsState extends State<reportdetails> {
         title: Text("d"),
       ),
       body: Center(
-        child: Text('name'),
+        child: Text(data["name"]),
       ),
     );
   }

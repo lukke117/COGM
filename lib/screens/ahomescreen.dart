@@ -198,11 +198,11 @@ getReports(String element) {
               Navigator.push(context,
             
                   MaterialPageRoute(builder: (context) => const reportdetails(), settings: RouteSettings(
-                    arguments: reportDatas[index]
+                    arguments:reportDatas[index] 
                   )
                     
                   ));
-              
+              print("reportDatas[index] ${reportDatas[index]} ${reportDatas[index].runtimeType}", );
                   // Navigator.pushNamed(context, '/Products',
                   //     arguments: {"id": 1, "name": "apple"});
                 
