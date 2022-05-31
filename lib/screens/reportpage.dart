@@ -527,7 +527,8 @@ class _reportPageState extends State<reportPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Text("Minister's report", style: TextStyle(fontSize: 20)),
+                    const Text("Minister's report",
+                        style: TextStyle(fontSize: 20)),
                     const SizedBox(height: 45),
                     dateField,
                     const SizedBox(height: 20),

@@ -1,4 +1,3 @@
-import 'package:diploma/screens/userprofile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -51,12 +50,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    // SizedBox(
-                    //     height: 200,
-                    //     child: Image.asset(
-                    //       "assets/logo.png",
-                    //       fit: BoxFit.contain,
-                    //     )),
                     const SizedBox(height: 45),
                     Text(
                       "Name:$firstname $lastname",
