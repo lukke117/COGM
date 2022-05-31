@@ -11,8 +11,7 @@ class sRepLog extends StatefulWidget {
 
 class _sRepLogState extends State<sRepLog> {
   Widget build(BuildContext context) {
-    final data =
-        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final data = ModalRoute.of(context)!.settings.arguments as List<dynamic>;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: colorblue,
@@ -33,7 +32,7 @@ class _sRepLogState extends State<sRepLog> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
-                    height: 300,
+                    height: 600,
                     child: data.isNotEmpty
                         ? ListView.builder(
                             padding: const EdgeInsets.all(10),
@@ -57,7 +56,7 @@ class _sRepLogState extends State<sRepLog> {
                                                   arguments: data[index])));
                                     },
                                     child: Text(
-                                      "$data[index]['name']} ${data[index]['lastName']}",
+                                      "${data[index]['name']} ${data[index]['lastName']}",
                                       textAlign: TextAlign.center,
                                       style: const TextStyle(
                                         fontSize: 20,

@@ -131,11 +131,11 @@ class _AHomeScreenState extends State<AHomeScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 300,
+                  height: 200,
                   child: reportDatas.isNotEmpty
                       ? ListView.builder(
                           padding: const EdgeInsets.all(10),
-                          itemCount: 5,
+                          itemCount: 4,
                           itemBuilder: (context, index) {
                             return Material(
                               elevation: 5,
@@ -187,12 +187,12 @@ class _AHomeScreenState extends State<AHomeScreen> {
                         // Navigator.pushNamed(context, '/Products',
                         //     arguments: {"id": 1, "name": "apple"});
                       }
-                      ActionChip(
-                          label: const Text("Logout"),
-                          onPressed: () {
-                            logout(context);
-                          });
                     }),
+                ActionChip(
+                    label: const Text("Logout"),
+                    onPressed: () {
+                      logout(context);
+                    })
               ],
             ),
           ),
