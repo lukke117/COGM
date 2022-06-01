@@ -68,9 +68,12 @@ class _AHomeScreenState extends State<AHomeScreen> {
         .collection('users')
         .doc(element)
         .collection('Reports')
+        .orderBy("date", descending: true)
         .get()
         .then((docs) {
+
       if (docs.docs.isNotEmpty) {
+
         for (int i = 0; i < docs.docs.length; i++) {
           print("datyaaa ${docs.docs[i].data()}");
           setState(() {
@@ -135,7 +138,7 @@ class _AHomeScreenState extends State<AHomeScreen> {
                   child: reportDatas.isNotEmpty
                       ? ListView.builder(
                           padding: const EdgeInsets.all(10),
-                          itemCount: 4,
+                          itemCount: (reportDatas.length > 6) ? 6 : reportDatas.length,
                           itemBuilder: (context, index) {
                             return Material(
                               elevation: 5,
@@ -154,14 +157,18 @@ class _AHomeScreenState extends State<AHomeScreen> {
                                             settings: RouteSettings(
                                                 arguments:
                                                     reportDatas[index])));
+<<<<<<< HEAD
                                     print(
                                       "reportDatas[index] ${reportDatas[index]} ${reportDatas[index].runtimeType} ",
                                     );
+=======
+                                  
+>>>>>>> 941651b2daf35cebd6e3bb51395a04c6a59f790c
                                     // Navigator.pushNamed(context, '/Products',
                                     //     arguments: {"id": 1, "name": "apple"});
                                   },
                                   child: Text(
-                                    "${reportDatas[index]['name']} ${reportDatas[index]['lastName']}",
+                                    "${reportDatas[index]['date']} ${reportDatas[index]['name']} ${reportDatas[index]['lastName']}",
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
                                       fontSize: 20,
