@@ -330,6 +330,10 @@ class _reportPageState extends State<reportPage> {
       try {
         String? uid = FirebaseAuth.instance.currentUser?.uid;
         DateTime now = new DateTime.now();
+        int year = new DateTime.now().year;
+        int month = new DateTime.now().month;
+        int day = new DateTime.now().day;
+
 
         DocumentReference documentReference = FirebaseFirestore.instance
             .collection('users')
@@ -346,7 +350,7 @@ class _reportPageState extends State<reportPage> {
           DocumentSnapshot snapshot = await transaction.get(documentReference);
           if (!snapshot.exists) {
             documentReference.set({
-              'date': dateController.text,
+              'date': "$year/$month/$day",
               'localChurch': localChurchController.text,
               'address': addressController.text,
               'fplw': fplwController.text,
@@ -376,27 +380,7 @@ class _reportPageState extends State<reportPage> {
       }
     }
 
-    final dateField = TextFormField(
-        autofocus: false,
-        controller: dateController,
-        obscureText: false,
-        validator: (value) {
-          if (value!.isEmpty) {
-            return ("month is required");
-          }
-        },
-        onSaved: (value) {
-          dateController.text = value!;
-        },
-        textInputAction: TextInputAction.done,
-        decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.calendar_month),
-          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "date",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ));
+    
     final fplwField = TextFormField(
         autofocus: false,
         controller: fplwController,
@@ -530,8 +514,6 @@ class _reportPageState extends State<reportPage> {
                     const Text("Minister's report",
                         style: TextStyle(fontSize: 20)),
                     const SizedBox(height: 45),
-                    dateField,
-                    const SizedBox(height: 20),
                     localChurchField,
                     const SizedBox(height: 20),
                     addressField,
