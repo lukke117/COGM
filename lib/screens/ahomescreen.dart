@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diploma/model/user_model.dart';
 import 'package:diploma/screens/loginscreen.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 const colorblue = Color(0xFF012B81);
 
@@ -51,14 +50,14 @@ class _AHomeScreenState extends State<AHomeScreen> {
   //  _collectionRef =
   //   FirebaseFirestore.instance.collection('users').doc();
 
-  CollectionReference _collectionRef =
+  final CollectionReference _collectionRef =
       FirebaseFirestore.instance.collection('users');
 
   Future<void> getData() async {
     _collectionRef.get().then((snapshot) {
       snapshot.docs.forEach((element) {
         getReports(element.id.toString());
-        print('element ${element.id}');
+        // print('element ${element.id}');
       });
     });
   }
@@ -71,20 +70,19 @@ class _AHomeScreenState extends State<AHomeScreen> {
         .orderBy("date", descending: true)
         .get()
         .then((docs) {
-
       if (docs.docs.isNotEmpty) {
-
         for (int i = 0; i < docs.docs.length; i++) {
-          print("datyaaa ${docs.docs[i].data()}");
+          // print("datyaaa ${docs.docs[i].data()}");
           setState(() {
             reportDatas.add(docs.docs[i].data());
           });
-          print("reportData $reportDatas");
+          // print("reportData $reportDatas");
         }
       }
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -138,7 +136,8 @@ class _AHomeScreenState extends State<AHomeScreen> {
                   child: reportDatas.isNotEmpty
                       ? ListView.builder(
                           padding: const EdgeInsets.all(10),
-                          itemCount: (reportDatas.length > 6) ? 6 : reportDatas.length,
+                          itemCount:
+                              (reportDatas.length > 6) ? 6 : reportDatas.length,
                           itemBuilder: (context, index) {
                             return Material(
                               elevation: 5,
@@ -153,17 +152,11 @@ class _AHomeScreenState extends State<AHomeScreen> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const reportdetails(),
+                                                const ReportDetails(),
                                             settings: RouteSettings(
                                                 arguments:
                                                     reportDatas[index])));
-<<<<<<< HEAD
-                                    print(
-                                      "reportDatas[index] ${reportDatas[index]} ${reportDatas[index].runtimeType} ",
-                                    );
-=======
-                                  
->>>>>>> 941651b2daf35cebd6e3bb51395a04c6a59f790c
+
                                     // Navigator.pushNamed(context, '/Products',
                                     //     arguments: {"id": 1, "name": "apple"});
                                   },
@@ -188,11 +181,9 @@ class _AHomeScreenState extends State<AHomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const sRepLog(),
+                                builder: (context) => const SrepLog(),
                                 settings:
                                     RouteSettings(arguments: reportDatas)));
-                        // Navigator.pushNamed(context, '/Products',
-                        //     arguments: {"id": 1, "name": "apple"});
                       }
                     }),
                 const SizedBox(height: 20),
@@ -216,8 +207,3 @@ Future<void> logout(BuildContext context) async {
   Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => const LoginScreen()));
 }
-
-
-
-//  Navigator.push(
-//                  context, MaterialPageRoute(builder: (context) => reportPage()));

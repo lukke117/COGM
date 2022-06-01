@@ -3,14 +3,13 @@ import 'package:diploma/screens/homescreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diploma/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class reportPage extends StatefulWidget {
-  const reportPage({Key? key}) : super(key: key);
+class ReportPage extends StatefulWidget {
+  const ReportPage({Key? key}) : super(key: key);
 
   @override
-  State<reportPage> createState() => _reportPageState();
+  State<ReportPage> createState() => _ReportPageState();
 }
 
 final dateController = new TextEditingController();
@@ -309,7 +308,7 @@ final bbhsField = TextFormField(
       ),
     ));
 
-class _reportPageState extends State<reportPage> {
+class _ReportPageState extends State<ReportPage> {
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
   @override
@@ -333,7 +332,6 @@ class _reportPageState extends State<reportPage> {
         int year = new DateTime.now().year;
         int month = new DateTime.now().month;
         int day = new DateTime.now().day;
-
 
         DocumentReference documentReference = FirebaseFirestore.instance
             .collection('users')
@@ -380,7 +378,6 @@ class _reportPageState extends State<reportPage> {
       }
     }
 
-    
     final fplwField = TextFormField(
         autofocus: false,
         controller: fplwController,
@@ -493,7 +490,7 @@ class _reportPageState extends State<reportPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorblue,
-        title: Text(" ${loggedInUser.firstName}, ${loggedInUser.lastName}",
+        title: Text(" ${loggedInUser.firstName} ${loggedInUser.lastName}",
             style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.w500,
@@ -518,7 +515,7 @@ class _reportPageState extends State<reportPage> {
                     const SizedBox(height: 20),
                     addressField,
                     const SizedBox(height: 20),
-                    Text("Statistics", style: TextStyle(fontSize: 20)),
+                    const Text("Statistics", style: TextStyle(fontSize: 20)),
                     const SizedBox(height: 20),
                     fplwField,
                     const SizedBox(height: 20),

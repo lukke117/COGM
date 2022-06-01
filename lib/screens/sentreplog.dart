@@ -51,7 +51,7 @@ class _sRepLogState extends State<sRepLog> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const reportdetails(),
+                                                  const ReportDetails(),
                                               settings: RouteSettings(
                                                   arguments: data[index])));
                                     },
@@ -88,5 +88,6 @@ class _sRepLogState extends State<sRepLog> {
 //   Widget build(BuildContext context) {
 //     return Scaffold();
 //   }
+
 
 // }

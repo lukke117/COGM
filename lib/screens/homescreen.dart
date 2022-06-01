@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const reportPage()));
+                MaterialPageRoute(builder: (context) => const ReportPage()));
           },
           child: const Text(
             "Monthly report",
@@ -126,4 +126,4 @@ Future<void> logout(BuildContext context) async {
 }
 
 //  Navigator.push(
-//                  context, MaterialPageRoute(builder: (context) => reportPage()));
+//                  context, MaterialPageRoute(builder: (context) => ReportPage()));
