@@ -58,7 +58,7 @@ class _AHomeScreenState extends State<AHomeScreen> {
     _collectionRef.get().then((snapshot) {
       snapshot.docs.forEach((element) {
         getReports(element.id.toString());
-        print(element.id);
+        print('element ${element.id}');
       });
     });
   }
@@ -155,7 +155,7 @@ class _AHomeScreenState extends State<AHomeScreen> {
                                                 arguments:
                                                     reportDatas[index])));
                                     print(
-                                      "reportDatas[index] ${reportDatas[index]} ${reportDatas[index].runtimeType}",
+                                      "reportDatas[index] ${reportDatas[index]} ${reportDatas[index].runtimeType} ",
                                     );
                                     // Navigator.pushNamed(context, '/Products',
                                     //     arguments: {"id": 1, "name": "apple"});
@@ -188,6 +188,7 @@ class _AHomeScreenState extends State<AHomeScreen> {
                         //     arguments: {"id": 1, "name": "apple"});
                       }
                     }),
+                const SizedBox(height: 20),
                 ActionChip(
                     label: const Text("Logout"),
                     onPressed: () {

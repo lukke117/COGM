@@ -1,9 +1,9 @@
-// import 'package:diploma/model/report_model.dart';
 import 'package:flutter/material.dart';
 import 'package:diploma/screens/homescreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:diploma/model/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class reportPage extends StatefulWidget {
@@ -577,3 +577,31 @@ class _reportPageState extends State<reportPage> {
     );
   }
 }
+
+// class NotificationApi {
+//   static Future _notificationDetails() async {
+//     return const NotificationDetails(
+//       android: AndroidNotificationDetails('channelId', 
+//       'channelName',
+//       // 'channelDescription',
+//       importance: Importance.max
+//       ),
+//       iOS: IOSNotificationDetails(),
+//     );
+//   }
+
+//   static final _notifications = FlutterLocalNotificationsPlugin();
+//   static Future showNotification({
+//     int id = 0,
+//     String? title,
+//     String? body,
+//     String? payload,
+//   }) async =>
+//       _notifications.show(
+//         id,
+//         title,
+//         body,
+//         await _notificationDetails(),
+//         payload: payload,
+//       );
+// }

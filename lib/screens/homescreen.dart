@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialPageRoute(builder: (context) => const reportPage()));
           },
           child: const Text(
-            "##/##/##/report",
+            "Monthly report",
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),

@@ -56,7 +56,7 @@ class _sRepLogState extends State<sRepLog> {
                                                   arguments: data[index])));
                                     },
                                     child: Text(
-                                      "${data[index]['name']} ${data[index]['lastName']}",
+                                      "${data[index]['date']} ${data[index]['name']} ${data[index]['lastName']}",
                                       textAlign: TextAlign.center,
                                       style: const TextStyle(
                                         fontSize: 20,
