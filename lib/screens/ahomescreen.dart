@@ -152,7 +152,7 @@ class _AHomeScreenState extends State<AHomeScreen> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const ReportDetails(),
+                                                const reportdetails(),
                                             settings: RouteSettings(
                                                 arguments:
                                                     reportDatas[index])));
@@ -181,7 +181,7 @@ class _AHomeScreenState extends State<AHomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const SrepLog(),
+                                builder: (context) => const sRepLog(),
                                 settings:
                                     RouteSettings(arguments: reportDatas)));
                       }

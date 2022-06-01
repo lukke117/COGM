@@ -51,7 +51,7 @@ class _sRepLogState extends State<sRepLog> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const ReportDetails(),
+                                                  const reportdetails(),
                                               settings: RouteSettings(
                                                   arguments: data[index])));
                                     },
